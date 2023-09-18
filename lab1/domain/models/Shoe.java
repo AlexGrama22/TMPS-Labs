@@ -14,6 +14,7 @@ public class Shoe {
         this.price = price;
         this.stockCount = stockCount;
     }
+
     @Override
     public String toString() {
         return "Shoe{" +
@@ -24,5 +25,4 @@ public class Shoe {
                 ", stockCount=" + stockCount +
                 '}';
     }
-
 }
