@@ -26,16 +26,45 @@
 
 
 ## Implementation
+__SRP (Single Responsibility Principle)__
 
-&ensp; The Shoe Store Simulation demonstrates SOLID principles through its structure and design. In the MainApp, shoes are randomly selected for a customer who can purchase via different methods. The ShoeFactory provides a clear instance creation, adhering to the Factory pattern, a subset of the Single Responsibility Principle. The Customer class's purchase actions are modularized through the implementation of OnlineBuyer and InStoreBuyer interfaces, embracing the Interface Segregation Principle. This separation ensures that each class and interface has a distinct responsibility, making the system more maintainable and scalable.
+* __Shoe and Customer classes:__ They focus only on representing data related to shoes and customers, respectively.
+* __BuyingService:__ Handles the buying process, ensuring it's separate from the core entities.
+* __Factories (ShoeFactory and CustomerFactory):__ They deal with the creation of their respective entities, ensuring that object instantiation is abstracted away.
+
+Thus, each class/component retains a single, focused responsibility.
+
+__OCP (Open/Closed Principle)__
+
+* The code allows for the addition of new types of shoes or customers without necessitating alterations to the **MainApp**.
+* If there's a need to introduce a new buying method, a new method can be added to BuyingService without modifying the existing ones.
+* Extensibility is apparent: If you need to add more shoe or customer types, you can merely append them to the existing lists without modifying any switch-case structures.
+
+__LSP (Liskov Substitution Principle)__
+
+* Is demonstrated through the **SpecialOnlineBuyer** subclass. This subclass enhances the behavior of the superclass (**Customer**) without changing its original behavior, thus ensuring that the **SpecialOnlineBuyer** is a perfect substitute for the **Customer** class.
+
+__ISP (Interface Segregation Principle)__
+
+* The code integrates the buying behavior from two Interfaces into BuyingService class.
+* ISP is achieved by segregating the buying actions into two separate interfaces. This means if we have customers who only shop online or only in-store, they can implement only the relevant interface.
+
+__DIP (Dependency Inversion Principle)__
+
+* MainApp utilizes abstractions, like **ShoeFactory** and **CustomerFactory**, to instantiate objects. This abstraction ensures MainApp isn't tightly coupled with concrete classes.
+* The introduction of a service (**BuyingService**) also aligns with DIP.
 
 ## Output:
 ```
-Alex Johnson chose Shoe{brand='Nike', size=42, type='sports', price=120.0, stockCount=10}
-Alex Johnson bought a shoe in-store.
+Alex Johnson chose Shoe{brand='Adidas', size=40, type='sports', price=128.0, stockCount=12}
+Alex Johnson bought a shoe online.
 
 Benjamin Lee chose Shoe{brand='Adidas', size=40, type='sports', price=128.0, stockCount=12}
 Benjamin Lee bought a shoe in-store.
+
+Jessica Ramirez chose Shoe{brand='Puma', size=43, type='sports', price=134.0, stockCount=13}
+Jessica Ramirez bought a shoe online.
+Jessica Ramirez received a special online discount.
 ```
 
 
