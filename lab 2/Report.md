@@ -86,7 +86,7 @@ public class SportStoreFactory implements StoreFactory {
     }
 }
 ```
-__Adapter Pattern__
+__Builder Pattern__
 
 * __Class: ShoeBuilder__
 * This class provides a way to construct a complex object step by step. It is used to create a Shoe object, allowing the client to specify the type, brand, size, price, and stock count with a fluent interface.
