@@ -60,7 +60,7 @@ public class CustomerGroup implements CustomerComponent {
     // ... (Other methods)
 }
 ```
-__Builder Pattern__
+__Adapter Pattern__
 
 * __Class: DiscountAdapter__
 * This class is used to make incompatible interfaces compatible. It wraps the Discount class and adapts its interface to be usable with the __SpecialOnlineBuyer__ class.
